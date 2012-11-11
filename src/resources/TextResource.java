@@ -32,7 +32,7 @@ public class TextResource extends Resource {
 	public void setText(String text) {
 		this.text = text;
 	}
-
+	
 	/*
 	 * toString()
 	 * Znowu przesłaniamy metodę toString(), by uzupełnić stan obiektu

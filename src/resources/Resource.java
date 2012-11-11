@@ -21,8 +21,8 @@ public class Resource {
 	
 	public Resource(int id, String title, String owner) {
 		this.id = id;
-		this.title = title;
-		this.owner = owner;
+		setTitle(title);		//zamiast: this.title = title;
+		setOwner(owner);		//zamiast: this.owner = owner; 
 	}
 	
 	/*
@@ -34,17 +34,40 @@ public class Resource {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getTitle() {
+	
+	// Metody set i get dla pól title i owner są oznaczone jako finalne (final)
+	// Dzięki temu nie można ich przesłonić (co jest w tym przypadku zaletą).
+	public final String getTitle() {
 		return title;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public final void setTitle(String title) {
+		if (isCorrect(title)) {
+			this.title = title;
+		} else {
+			throw new IllegalArgumentException("Pole title nie może być puste.");		
+		}
 	}
-	public String getOwner() {
+	public final String getOwner() {
 		return owner;
 	}
-	public void setOwner(String owner) {
-		this.owner = owner;
+	public final void setOwner(String owner) {
+		if (isCorrect(owner)) {
+			this.owner = owner;
+		} else {
+			throw new IllegalArgumentException("Pole owner nie może być puste.");		
+		}
+	}
+	
+	/*
+	 * Prywatna metoda sprawdzająca poprawność przekazywanych danych (String).
+	 * Jest używana w setTitle() i setOwner().
+	 */
+	private boolean isCorrect(String s) {
+		if ((s != null) && !s.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/*
