@@ -13,6 +13,9 @@ public class Resource {
 	//wlaściciel (twórca) zasobu
 	private String owner;
 
+	public static final Resource NULL = new NullResource();
+	
+	
 	/*
 	 * Konstruktory
 	 */

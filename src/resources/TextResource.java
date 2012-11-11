@@ -21,6 +21,11 @@ public class TextResource extends Resource {
 		super(id, title, owner);
 	}
 
+	public TextResource(int id, String title, String owner, String text) {
+		super(id, title, owner);
+		this.text = text;
+	}
+
 	/*
 	 * Gettery i settery
 	 */
