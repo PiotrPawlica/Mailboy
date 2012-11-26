@@ -6,6 +6,10 @@ package resources;
  *
  */
 public class Resource {
+	
+	//stała Resource.NULL to instancja klasy NullResource - oznacza brak zasobu
+	public static final NullResource NULL = new NullResource();
+	
 	//identyfikator zasobu (w przyszłości zmienimy typ na String)
 	private int id;
 	//tytuł (nazwa) zasobu
