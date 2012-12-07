@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+
 import resources.*;
 
 public class Main {
@@ -11,17 +14,14 @@ public class Main {
 		
 		//Zasoby dodajemy metodą addResource()
 		db.addResource(o1);
-		db.addResource(new Resource(12, "Zasób", "ktoś"));
-		db.addResource(new TextResource(3456, "Notatka 2", "on"));
+		db.addResource(new Resource(12, "Nowy zasób", "ktoś"));
+		db.addResource(new TextResource(3456, "Notatka 7", "on"));
 		
-		//Metoda getResById służy do wyszukiwania zasobu o określonym identyfikatorze
-		Resource o = db.getResById(2);
-		
-		//Stała Resource.NULL oznacza brak zasobu
-		if (o == Resource.NULL) {
-			System.out.println("Nie znalazłem zasobu.");
+		ArrayList<Resource> list = new ArrayList<Resource>();
+		list = db.getResByTitle(".*zasób.*");
+		for (Resource o : list) {
+			System.out.println(o);
 		}
-		System.out.println(o);
 		
 	}
 
